@@ -1,0 +1,79 @@
+#vis2_description {
+	position: absolute;
+	width: 250px;
+/*	border: solid 1px black;
+*/	height: 210px;
+	padding: 1rem;
+	right: 90px;
+	top: 120px;
+	text-align: left;
+
+}
+
+#vis2_description h4 {
+	text-align: center;
+}
+
+#vis2_description p {
+	margin: 0;
+}
+
+#sister {
+	
+	border-radius: 15px;
+
+	background-color: orange;
+	z-index: -1;
+	opacity: 0;
+
+	position: absolute;
+	bottom: 70px;
+	left: 183.5PX;
+	width: 70px;
+	height: 130px;
+}
+
+
+#root, #node, #terminal, .chara_2 {
+	border-radius: 15px;
+
+	background-color: orange;
+	z-index: -1;
+	opacity: 0;
+
+	position: absolute;
+	width: 60px;
+	height: 60px;
+
+}
+#root {
+	top: 40px;
+	left: 217.5px;
+
+}
+
+#node {
+	top: 130px;
+	left: 145px;
+}
+
+#terminal {
+	width: 40px;
+	bottom: 73px;
+	left: 315.5px;
+}
+
+.chara_2 {
+	width: 30px;
+	height: 30px;
+	border-radius: 5px;
+
+}
+
+.chara {
+	position: absolute;
+	border: solid 1px black;
+	width: 20px;
+	height: 4px;
+	background-color: black;
+}
