@@ -77,3 +77,11 @@
 	height: 4px;
 	background-color: black;
 }
+
+
+.question {
+	position: absolute;
+	color: white;
+	top: 200px;
+	left: 10px;
+}

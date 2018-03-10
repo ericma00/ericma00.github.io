@@ -15,6 +15,10 @@ $(function() {
 
 	var width = 850, height = 450;
 
+
+    var selectColor = "#386b97";
+    var selectOpacity = 1;
+
     var svg = d3.select("#visualization_2").append("svg")
         .attr("width", width)
         .attr("height", height);
@@ -40,7 +44,7 @@ $(function() {
  			
  		node.append('circle')
             .attr('r', function(d) {return d.radius})
-            .attr('fill', 'steelblue')
+            .attr('fill', 'grey')
    
         node.append('text')
             .text(function(d) { return d.name;})
@@ -50,7 +54,7 @@ $(function() {
             .style('font-size', '1rem');
 
         var diagonal = d3.svg.diagonal()
-            .projection(function(d) { return [d.x + 100, d.y + 60]; });
+            .projection(function(d) { return [d.x + 100, d.y + 65]; });
 
         svg.selectAll('.vis2_link')
             .data(links)
@@ -65,8 +69,8 @@ $(function() {
         svg.append('circle')
             .attr('class', 'vis2_explanation')
             .attr('r', '15px')
-            .attr('fill', 'grey')
-            .style('opacity', 0.5)
+            .attr('fill', selectColor)
+            .style('opacity', selectOpacity)
             .attr('cx', '125px')
             .attr('cy', '130px')
             .on('click', function() {
@@ -80,8 +84,8 @@ $(function() {
         svg.append('circle')
             .attr('class', 'vis2_explanation')
             .attr('r', '15px')
-            .attr('fill', 'grey')
-            .style('opacity', 0.5)
+            .attr('fill', selectColor)
+            .style('opacity', selectOpacity)
             .attr('cx', '370px')
             .attr('cy', '385px')
             .on('click', function() {
@@ -92,8 +96,8 @@ $(function() {
         svg.append('circle')
             .attr('class', 'vis2_explanation')
             .attr('r', '15px')
-            .attr('fill', 'grey')
-            .style('opacity', 0.5)
+            .attr('fill', selectColor)
+            .style('opacity', selectOpacity)
             .attr('cx', '220px')
             .attr('cy', '405px')
             .on('click', function() {
@@ -104,8 +108,8 @@ $(function() {
         svg.append('circle')
             .attr('class', 'vis2_explanation')
             .attr('r', '15px')
-            .attr('fill', 'grey')
-            .style('opacity', 0.5)
+            .attr('fill', selectColor)
+            .style('opacity', selectOpacity)
             .attr('cx', '195px')
             .attr('cy', '45px')
             .on('click', function() {
@@ -116,8 +120,8 @@ $(function() {
         svg.append('circle')
             .attr('class', 'vis2_explanation')
             .attr('r', '15px')
-            .attr('fill', 'grey')
-            .style('opacity', 0.5)
+            .attr('fill', selectColor)
+            .style('opacity', selectOpacity)
             .attr('cx', '280')
             .attr('cy', '225px')
             .on('click', function() {
@@ -157,6 +161,12 @@ $(function() {
         createCharacters('chara_2', 305, 166);
         // test.css({'position': 'aboslute', 'width': '10px', 'border': 'solid 1px black', 'height': '50px'})
         // svg.append(test);
+
+        createQ(188, 26);
+        createQ(118, 111);
+        createQ(273.5, 206);
+        createQ(213.5, 386);
+        createQ(363.5, 366);
 
  	 })
     
@@ -210,7 +220,13 @@ $(function() {
 
 
 
-
+    function createQ(x, y) {
+        var q = $('<span class="question">?</span>');
+        q.css('font-size', '15px');
+        q.css('left', (x + 2) + 'px');
+        q.css('top', (y+7) + 'px');   
+        $('#visualization_2').append(q);
+    }
 
 
 
