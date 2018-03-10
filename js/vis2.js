@@ -2,12 +2,14 @@ $(function() {
 
 
     var descrip_data = [
-        {"term": "Root", "description" : "The root of a phylogenetic tree represents a series of ancestors leading up to the most recent common ancestor of all the species represented in that tree. "},
-        {"term": "Node", "description" : "A node is a branch point that represents a divergence event where a lineage splits into two different descendant groups."},
-        {"term": "Sister Groups", "description" : "Sister groups are two monophyletic groups that are each other’s closest relatives."},
-        {"term": "Terminal Node", "description" : "A terminal node is a node that appears as a branch tip on a phylogenetic tree"},
-        {"term": "Character", "description" : "A character is a recognizable feature of an organism."}
+        {"term": "Root", "id": "root", "description" : "The root of a phylogenetic tree represents a series of ancestors leading up to the most recent common ancestor of all the species represented in that tree. "},
+        {"term": "Node", "id": "node", "description" : "A node is a branch point that represents a divergence event where a lineage splits into two different descendant groups."},
+        {"term": "Sister Groups", "id":"sister", "description" : "Sister groups are two monophyletic groups that are each other’s closest relatives."},
+        {"term": "Terminal Node","id":"terminal", "description" : "A terminal node is a node that appears as a branch tip on a phylogenetic tree"},
+        {"term": "Character", "id": "chara_2","description" : "A character is a recognizable feature of an organism."}
     ]
+
+    var descript = "";
 
     var state = 0;
 
@@ -69,19 +71,11 @@ $(function() {
             .attr('cy', '130px')
             .on('click', function() {
 
-                if (state == 0) {
-                    state = 1;
-                    $('#visualization_2 h4').text(descrip_data[1].term);
-                    $('#visualization_2 p').text(descrip_data[1].description);
-                    $('#node').css('opacity', 0.5);
-                } else {
-                    state = 0;
-                    $('#visualization_2 h4').empty();
-                    $('#visualization_2 p').empty()
-                    $('#node').css('opacity', 0);
-                }
+                display_description(1, 'node');
 
             })
+
+
 
         svg.append('circle')
             .attr('class', 'vis2_explanation')
@@ -91,17 +85,7 @@ $(function() {
             .attr('cx', '370px')
             .attr('cy', '385px')
             .on('click', function() {
-                if (state == 0) {
-                    state = 1;
-                    $('#visualization_2 h4').text(descrip_data[3].term);
-                    $('#visualization_2 p').text(descrip_data[3].description);
-                    $('#terminal').css('opacity', 0.5);
-                } else {
-                    state = 0;
-                    $('#visualization_2 h4').empty();
-                    $('#visualization_2 p').empty()
-                    $('#terminal').css('opacity', 0);
-                }
+                display_description(3, 'terminal');
                 
             })
 
@@ -114,17 +98,7 @@ $(function() {
             .attr('cy', '405px')
             .on('click', function() {
 
-                if (state == 0) {
-                    state = 1;
-                    $('#visualization_2 h4').text(descrip_data[2].term);
-                    $('#visualization_2 p').text(descrip_data[2].description);
-                    $('#sister').css('opacity', 0.5);
-                } else {
-                    state = 0;
-                    $('#visualization_2 h4').empty();
-                    $('#visualization_2 p').empty()
-                    $('#sister').css('opacity', 0);
-                }
+                display_description(2, 'sister');
             })
 
         svg.append('circle')
@@ -135,17 +109,7 @@ $(function() {
             .attr('cx', '195px')
             .attr('cy', '45px')
             .on('click', function() {
-                if (state == 0) {
-                    state = 1;
-                    $('#visualization_2 h4').text(descrip_data[0].term);
-                    $('#visualization_2 p').text(descrip_data[0].description);
-                    $('#root').css('opacity', 0.5);
-                } else {
-                    state = 0;
-                    $('#visualization_2 h4').empty();
-                    $('#visualization_2 p').empty()
-                    $('#root').css('opacity', 0);
-                }
+                display_description(0, 'root');
 
             })
 
@@ -162,11 +126,21 @@ $(function() {
                     $('#visualization_2 h4').text(descrip_data[4].term);
                     $('#visualization_2 p').text(descrip_data[4].description);
                     $('.chara_2').css('opacity', 0.5);
+                    descript = name;
                 } else {
-                    state = 0;
-                    $('#visualization_2 h4').empty();
-                    $('#visualization_2 p').empty()
-                    $('.chara_2').css('opacity', 0);
+                    if (descript == name) {
+                        state = 0;
+                        $('#visualization_2 h4').empty();
+                        $('#visualization_2 p').empty()
+                        $('.chara_2').css('opacity', 0);  
+                        descript = "";
+                    } else {
+                        clear_everything();
+                        $('#visualization_2 h4').text(descrip_data[num].term);
+                        $('#visualization_2 p').text(descrip_data[num].description);
+                        $('#' + name).css('opacity', 0.5); 
+                        descript = name;
+                    }      
                 }
             })    
 
@@ -186,6 +160,44 @@ $(function() {
 
  	 })
     
+    function clear_everything() {
+        $('#visualization_2 h4').empty();
+        $('#visualization_2 p').empty();
+        
+        $('.chara_2').css('opacity', 0);
+        $('#root').css('opacity', 0);
+        $('#sister').css('opacity', 0);
+        $('#terminal').css('opacity', 0);
+        $('#node').css('opacity', 0);  
+    }
+
+
+    function display_description(num, name) {
+        if (state == 0) {
+            state = 1;
+            $('#visualization_2 h4').text(descrip_data[num].term);
+            $('#visualization_2 p').text(descrip_data[num].description);
+            $('#' + name).css('opacity', 0.5);
+
+            descript = name;
+        } else {
+            if (descript == name) {
+                state = 0;
+                $('#visualization_2 h4').empty();
+                $('#visualization_2 p').empty()
+                $('#' + name).css('opacity', 0);
+                descript = "";
+            } else {
+                clear_everything();
+                $('#visualization_2 h4').text(descrip_data[num].term);
+                $('#visualization_2 p').text(descrip_data[num].description);
+                $('#' + name).css('opacity', 0.5); 
+                descript = name;
+            }
+        }
+
+    }
+
     function createCharacters(name, x, y) {
         var t = $('<div class="' + name + '"></div>');
         t.css('left', x + 'px');
