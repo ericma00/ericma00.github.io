@@ -138,7 +138,7 @@ $(function() {
                         clear_everything();
                         $('#visualization_2 h4').text(descrip_data[num].term);
                         $('#visualization_2 p').text(descrip_data[num].description);
-                        $('#' + name).css('opacity', 0.5); 
+                        $('.chara_2').css('opacity', 0.5); 
                         descript = name;
                     }      
                 }
