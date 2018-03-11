@@ -184,6 +184,7 @@ $(function() {
 
 
     function display_description(num, name) {
+        console.log("name: " + name);
         if (state == 0) {
             state = 1;
             $('#visualization_2 h4').text(descrip_data[num].term);
@@ -201,10 +202,12 @@ $(function() {
                 state = 0;
                 $('#visualization_2 h4').empty();
                 $('#visualization_2 p').empty()
-                if (name = "character") {
+                if (name == "character") {
                     $('.character').css('opacity', 0);
+                    console.log('hifjeak;fjeakfe');
                 } else {
                     $('#' + name).css('opacity', 0);
+                    console.log('fjea;kfjeakfaef');
                 }
                 descript = "";
             } else {

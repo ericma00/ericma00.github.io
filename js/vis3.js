@@ -60,7 +60,8 @@ function update(source) {
   
   nodeEnter.append("svg:text")
         .attr("x", function(d) { return d._children ? -8 : 8; })
-    .attr("y", 3)
+        .attr("y", 15)
+        .style('font-weight', 'bold')
         .text(function(d) { return d.name; });
 
     // Transition nodes to their new position.
@@ -69,7 +70,7 @@ function update(source) {
     .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; })
         .style("opacity", 1)
       .select("circle")
-        .style("fill", "lightsteelblue");
+        .style("fill", "steelblue");
       
   // Update the links…
   var link = vis.selectAll("path.link")
