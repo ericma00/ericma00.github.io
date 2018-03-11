@@ -213,7 +213,7 @@ body {
     height: 75px;
     background-image: url('../img/cow.png');
     background-size: contain;
-    opacity: 1;
+    opacity: 0;
 
     left: 715px;
     top: 69px;
