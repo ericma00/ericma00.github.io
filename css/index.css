@@ -88,7 +88,7 @@ body {
     background-color: white;
 }
 
-#section_1, #section_2, #section_3, #section_4, #section_5{
+#section_1, #section_2, #section_3, #section_4, #section_5, #section_6{
     width: 850px;
     margin: 0 auto;
     margin-top: 2rem;
@@ -102,7 +102,7 @@ body {
     text-align: center;
 }
 
-#section1_bar, #section2_bar, #section4_bar, #section5_bar {
+#section1_bar, #section2_bar, #section4_bar, #section5_bar, #section6_bar {
     width: 850px;
     height: 25px;
     margin: 0 auto;
@@ -464,6 +464,30 @@ body {
 }
 
 
+/* section 6 */
+
+#section_6 { 
+    text-align: center;
+    background-color: white;
+}
+
+#section6_bar {
+    background-color: #a26a42;
+}
+
+#section6_1 h4 {
+    font-size: 22pt;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#section6_1 p, #section6_2 p {
+    padding: 0 2.5%;
+}
+
+#section6_1 img {
+    width: 750px;
+}
 
 
 

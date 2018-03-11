@@ -64,15 +64,15 @@ $(document).ready(function() {
             .attr('r', function(d) {return d.radius})
             .attr('fill', 'steelblue')
             .on('mouseover', function(d) {
-                d3.select('#image_tooltip')
-                    .transition()
-                    .duration(50)
-                    .style('left', d.y + 243+ 'px')
-                    .style('top', d.x + 19 + 'px')
-                    .style('background-image', 'url("./img/' + d.image + '")')
-                    .style('opacity', 1)     
-                console.log(d.x);
-                console.log(d.y);             
+                // d3.select('#image_tooltip')
+                //     .transition()
+                //     .duration(50)
+                //     .style('left', d.y + 243+ 'px')
+                //     .style('top', d.x + 19 + 'px')
+                //     .style('background-image', 'url("./img/' + d.image + '")')
+                //     .style('opacity', 1)     
+                // console.log(d.x);
+                // console.log(d.y);             
             })
             .on('mouseout', function(d) {
                 d3.select('#image_tooltip')
@@ -105,7 +105,6 @@ $(document).ready(function() {
     function show_descrip(data) {
 
         highlight_link(data, data.depth, data.color);
-
         if (state == 0) {
 
             c1 = data;
@@ -122,8 +121,7 @@ $(document).ready(function() {
                 .duration(500)
                 .attr('d', diagonal_new)
 
-
-            d3.selectAll('.node')
+             d3.selectAll('.node')
                 .transition()
                 .duration(500)
                 .attr('transform', function(d) { return 'translate(' + (d.y + 62)  + ',' + (d.x + 100) + ')';})
