@@ -60,7 +60,7 @@ function update(source) {
   
   nodeEnter.append("svg:text")
         .attr("x", function(d) { return d._children ? -8 : 8; })
-        .attr("y", 15)
+        .attr("y", 3)
         .style('font-weight', 'bold')
         .text(function(d) { return d.name; });
 

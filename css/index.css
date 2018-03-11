@@ -171,9 +171,8 @@ body {
     text-align: left;
     position: absolute;
     width: 330px;
-    border: solid black 0.5px;
+    /*border: solid black 0.5px;*/
     height: 170px;
-    padding: 0.6rem;
 
     left: 505px;
 }
@@ -188,9 +187,18 @@ body {
     opacity: 0;
 }
 
-#sp_1 p, #sp_2 p {
-    font-size: 10pt;
+#sp1_bar, #sp2_bar {
+    width: 100%;
+    background-color: #849d9a;
+    height: 1rem;
 }
+
+#sp_1 p, #sp_2 p {
+    font-size: 9pt;
+
+}
+
+
 
 .node {
     cursor: pointer;
