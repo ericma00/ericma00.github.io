@@ -125,27 +125,28 @@ $(function() {
             .attr('cx', '280')
             .attr('cy', '225px')
             .on('click', function() {
-                if (state == 0) {
-                    state = 1;
-                    $('#visualization_2 h4').text(descrip_data[4].term);
-                    $('#visualization_2 p').text(descrip_data[4].description);
-                    $('.chara_2').css('opacity', 0.5);
-                    descript = name;
-                } else {
-                    if (descript == name) {
-                        state = 0;
-                        $('#visualization_2 h4').empty();
-                        $('#visualization_2 p').empty()
-                        $('.chara_2').css('opacity', 0);  
-                        descript = "";
-                    } else {
-                        clear_everything();
-                        $('#visualization_2 h4').text(descrip_data[num].term);
-                        $('#visualization_2 p').text(descrip_data[num].description);
-                        $('.chara_2').css('opacity', 0.5); 
-                        descript = name;
-                    }      
-                }
+                display_description(4, 'character');
+                // if (state == 0) {
+                //     state = 1;
+                //     $('#visualization_2 h4').text(descrip_data[4].term);
+                //     $('#visualization_2 p').text(descrip_data[4].description);
+                //     $('.chara_2').css('opacity', 0.5);
+                //     descript = name;
+                // } else {
+                //     if (descript == name) {
+                //         state = 0;
+                //         $('#visualization_2 h4').empty();
+                //         $('#visualization_2 p').empty()
+                //         $('.chara_2').css('opacity', 0);  
+                //         descript = "";
+                //     } else {
+                //         clear_everything();
+                //         $('#visualization_2 h4').text(descrip_data[num].term);
+                //         $('#visualization_2 p').text(descrip_data[num].description);
+                //         $('.chara_2').css('opacity', 0.5); 
+                //         descript = name;
+                //     }      
+                // }
             })    
 
         // var c = $('div').attr('class', 'bob'); 
@@ -157,8 +158,8 @@ $(function() {
 
 
 
-        createCharacters('chara_2', 291, 277);
-        createCharacters('chara_2', 305, 166);
+        // createCharacters('chara_2', 291, 277);
+        // createCharacters('chara_2', 305, 166);
         // test.css({'position': 'aboslute', 'width': '10px', 'border': 'solid 1px black', 'height': '50px'})
         // svg.append(test);
 
@@ -174,7 +175,7 @@ $(function() {
         $('#visualization_2 h4').empty();
         $('#visualization_2 p').empty();
         
-        $('.chara_2').css('opacity', 0);
+        $('#chara_2').css('opacity', 0);
         $('#root').css('opacity', 0);
         $('#sister').css('opacity', 0);
         $('#terminal').css('opacity', 0);
@@ -187,7 +188,7 @@ $(function() {
             state = 1;
             $('#visualization_2 h4').text(descrip_data[num].term);
             $('#visualization_2 p').text(descrip_data[num].description);
-            $('#' + name).css('opacity', 0.5);
+            $('#' + name).css('opacity', 0.3);
 
             descript = name;
         } else {
@@ -201,7 +202,7 @@ $(function() {
                 clear_everything();
                 $('#visualization_2 h4').text(descrip_data[num].term);
                 $('#visualization_2 p').text(descrip_data[num].description);
-                $('#' + name).css('opacity', 0.5); 
+                $('#' + name).css('opacity', 0.3); 
                 descript = name;
             }
         }
@@ -222,9 +223,9 @@ $(function() {
 
     function createQ(x, y) {
         var q = $('<span class="question">?</span>');
-        q.css('font-size', '15px');
-        q.css('left', (x + 2) + 'px');
-        q.css('top', (y+ 7) + 'px');   
+        q.css('font-size', '12px');
+        q.css('left', (x + 4) + 'px');
+        q.css('top', (y+ 10) + 'px');   
         $('#visualization_2').append(q);
     }
 
