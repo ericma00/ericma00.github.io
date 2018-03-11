@@ -20,12 +20,12 @@
 
 
 
-#root, #node, #terminal, .character_1, .character_2, #sister {
+#root, #node, #terminal, #character_1, #character_2, #sister {
 	border-radius: 15px;
 
 	background-color: orange;
 	/*z-index: -1;*/
-	opacity: 0.3;
+	opacity: 1;
 
 	position: absolute;
 	width: 60px;
@@ -57,19 +57,19 @@
 	left: 315.5px;
 }
 
-.character_1, .character_2 {
+#character_1, #character_2 {
 	width: 30px;
 	height: 30px;
 	border-radius: 5px;
 
 }
 
-.character_1 {
+#character_1 {
 	top: 276px;
 	left: 292px;
 }
 
-.character_2 {
+#character_2 {
 	top: 165.5px;
 	left: 305px;
 }

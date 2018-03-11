@@ -175,7 +175,7 @@ $(function() {
         $('#visualization_2 h4').empty();
         $('#visualization_2 p').empty();
         
-        $('#chara_2').css('opacity', 0);
+        $('.character').css('opacity', 0);
         $('#root').css('opacity', 0);
         $('#sister').css('opacity', 0);
         $('#terminal').css('opacity', 0);
@@ -188,7 +188,12 @@ $(function() {
             state = 1;
             $('#visualization_2 h4').text(descrip_data[num].term);
             $('#visualization_2 p').text(descrip_data[num].description);
-            $('#' + name).css('opacity', 0.3);
+
+            if (name == "character") {
+                $('.character').css('opacity', 0.3);
+            } else {
+                $('#' + name).css('opacity', 0.3);
+            }
 
             descript = name;
         } else {
@@ -196,13 +201,21 @@ $(function() {
                 state = 0;
                 $('#visualization_2 h4').empty();
                 $('#visualization_2 p').empty()
-                $('#' + name).css('opacity', 0);
+                if (name = "character") {
+                    $('.character').css('opacity', 0);
+                } else {
+                    $('#' + name).css('opacity', 0);
+                }
                 descript = "";
             } else {
                 clear_everything();
                 $('#visualization_2 h4').text(descrip_data[num].term);
                 $('#visualization_2 p').text(descrip_data[num].description);
-                $('#' + name).css('opacity', 0.3); 
+                if (name == "character") {
+                    $('.character').css('opacity', 0.3);
+                } else {
+                   $('#' + name).css('opacity', 0.3); 
+               }
                 descript = name;
             }
         }
