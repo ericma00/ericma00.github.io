@@ -23,128 +23,164 @@
     <script src="./js/index.js"></script>
     <script type="text/javascript" src="./js/vis3.js"></script>
     <script type="text/javascript" src="./js/vis2.js"></script>
+
+    <!-- font-fmaily -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
-<body id="main" class="container">
-
-    
+<body>
     <div id="header">
-        <h1 class="title">Phylogenetic Trees</h1>      
-        <h7>By: Eric Ma, Rebecca Ta, Saralyn Santos</h7>
-        <h5>This explorable explanation teaches users how to read phylogenetic trees, a type of diagram common in biology classes.</h5>
-    </div>
-
-    <div id="visualization_1">
-        <div class="species_description" id="sp_1">
-            <!-- name -->    
-            <h4></h4>
-
-            <!-- genes  -->
-            <h6></h6>
-
-            <!-- description -->
-            <p></p>
+        <div id="header_color">
+            <div id="header_info">
+                <h1 class="title">Phylogenetic Trees</h1>      
+                <h5>This explorable explanation teaches users how to read phylogenetic trees, a type of diagram common in biology classes.</h5>
+                <h6>By: Eric Ma, Rebecca Ta, Saralyn Santos</h6>
+            </div>
         </div>
-        
-        <div class="species_description" id="sp_2">
-            <!-- name -->
-            <h4></h4>
-
-            <!-- genes  -->
-            <h6></h6>
-
-            <!-- description -->
-            <p></p>
-        </div>
-
-        <div id="rg_left" class="related_genes">
-            <h5></h5>
-        </div>
-
-        <div id="rg_right" class="related_genes">
-            <h6>GENES IN COMMON</h6>
-        </div>
-
-        <div id="com_ances">
-            <h5><span></span> M</h5>
-            <h5>YEARS AGO</h5>
-        </div>
-
-        <div id="image_tooltip">
-
-        </div>
-
     </div>
 
 
-
-    <div id="description">
-
-<!-- ############### A FANCY LINE TO SPLIT THE SECTIONS ###################### -->
-
-        <div id="section_1" class="topics">
-            <h3>What is a Phylogenetic Tree?</h3>
+    <div id="section_0" class="topics">
+        <div id="section0_info">
+            <h4>What is a Phylogenetic Tree?</h4>
             <div class="flex_cont">
                 <p>
-                    A <b>phylogenetic tree</b> is a visual representation of the branching patterns of evolution. Through a phylogenetic tree, readers can trace the evolutionary relationships between various organisms.
+                    A <strong>phylogenetic tree</strong> is a visual representation of the branching patterns of evolution. Through a phylogenetic tree, readers can trace the evolutionary relationships between various organisms.
                 </p>
             </div>
         </div>
+    </div>
+
 
 <!-- ############### A FANCY LINE TO SPLIT THE SECTIONS ###################### -->
 
-        <div id="section_2" class="topics">
-            <h3>How to Read a Tree &amp; Anatomy of a Tree</h3>
-            <div id="visualization_2">
-                <div id="vis2_description">
-                    <h4></h4>
-                    <p></p>
-                </div>
 
+    <div id="section_1">
+        <div id="section1_bar"></div>
+        <div id="visualization_1">
+            <div class="species_description" id="sp_1">
+                <!-- name -->    
+                <h4></h4>
 
-                <div id="sister"></div>
-                <div id="node"></div>
-                <div id="root"></div>
-                <div id="terminal"></div>
+                <!-- genes  -->
+                <h6></h6>
 
+                <!-- description -->
+                <p></p>
+            </div>
+            
+            <div class="species_description" id="sp_2">
+                <!-- name -->
+                <h4></h4>
+
+                <!-- genes  -->
+                <h6></h6>
+
+                <!-- description -->
+                <p></p>
+            </div>
+
+            <div id="rg_left" class="related_genes">
+                <h5></h5>
+            </div>
+
+            <div id="rg_right" class="related_genes">
+                <h6>GENES IN COMMON</h6>
+            </div>
+
+            <div id="com_ances">
+                <h5><span></span> M</h5>
+                <h5>YEARS AGO</h5>
+            </div>
+
+            <div id="image_tooltip">
 
             </div>
-            <div id="sec2_subhead_1">
+
+        </div>
+    </div>
+
+
+
+
+<!-- ############### A FANCY LINE TO SPLIT THE SECTIONS ###################### -->
+    
+    <div id="section_2" class="topics">
+        <div id="section2_bar"></div>
+        <h4>How to Read a Tree</h4>
+        <div id="visualization_2">
+            <div id="vis2_description">
+                <h4></h4>
+                <p></p>
+            </div>
+
+
+            <div id="sister"></div>
+            <div id="node"></div>
+            <div id="root"></div>
+            <div id="terminal"></div>
+
+        </div>
+    </div>
+
+<!-- ############### A FANCY LINE TO SPLIT THE SECTIONS ###################### -->
+
+    <div id="section_3">
+        <div class="flex_cont">
+            <div id="section3_1" class="flex_child">
+                <div id="section3_1_bar"></div>
                 <h4>Understanding Evolutionary Relationships</h4>
-                <div class="flex_cont">
-                    <p>
-							  To understand evolutionary relationships, one important concept to understand is <b>common ancestry</b>. If two lineages have common ancestry, it means that they descended from the same ancestral lineage, and share some percentage of their genes. However, common ancestry does not mean that two lineages are exactly the same. For example, you and your cousins share common ancestry through your grandparents, but you probably don’t look exactly like them.
-                    </p>
-                    <div id="sec2_img">
-                        <div id="sec2_img_1"><img src="./img/evo_rel.png"></div>
-                    </div>
-                </div>
+                <p>
+                    To understand evolutionary relationships, one important concept to understand is <strong>common ancestry</strong>. If two lineages have       common ancestry, it means that they descended from the same ancestral lineage, and share some percentage of their genes. However, common ancestry does not mean that two lineages are exactly the same. For example, you and your cousins share common ancestry through your grandparents, but you probably don’t look exactly like them.
+                </p>
             </div>
-            <div id="sec2_subhead_2">
-                <h4>More on Monophyletic Groups</h4>
-                <div class="flex_cont">
-                    <p>
-                        A <b>monophyletic group</b> is a collection of organisms, including one ancestor organism and all the descendants of that single common ancestor. A monophyletic group can be a single branch of a tree or a collection of connected branches.<br><br><br>The first image to the right represents a monophyletic group because it includes different species and their common ancestor. Every species in the group highlighted in green is related to each other in some way.<br><br><br>The second image to the right does not represent a monophyletic group because it excludes the common ancestor of all the species highlighted in orange. Although the species highlighted are all related to each other, you can't tell by looking at only the highlighted groups because their common ancestor is excluded.
-                    </p>
-                    <div id="sec2_img">
-                        <div id="sec2_img_1"><img src="./img/mpg.png"></div>
-							  <br>
-							  	<div id="sec2_img_2"><img src="./img/not_an_mpg.png"></div>
-                    </div>
-                </div>
+            <div id="section3_2" class="flex_child">
+                <div id="section3_2_bar"></div> 
+                <img src="./img/evo_rel.png" />
             </div>
         </div>
+    </div>
 
 <!-- ############### A FANCY LINE TO SPLIT THE SECTIONS ###################### -->
         
-        <div id="section_3" class="topics">
-            <h2>Relatedness</h2>
+    <div id="section_4">
+        <div id="section4_bar"></div>
+        <div id="section4_1">
+            <h4>More on Monophyletic Groups</h4>
             <p>
-					<b>Relatedness</b> refers to how closely two different species are connected by a common lineage. Two species are more closely related if they have a more recent common ancestor. To identify how closely related two species are, start at the branch tips that hold the two species of interest, then trace the branches of the tree backward until the two branches converge. This point of convergence represents the two species’ most recent common ancestor.
+                A <strong>monophyletic group</strong> is a collection of organisms, including one ancestor organism and all the descendants of that single common ancestor. A monophyletic group can be a single branch of a tree or a collection of connected branches.
             </p>
         </div>
 
+        <div id="section4_2">
+            <div class="flex_cont">
+                <p id="section4_2_1">
+                    The first image to the right represents a monophyletic group because it includes different species and their common ancestor. Every species in the group highlighted in green is related to each other in some way.
+                </p>
+                <img id="section4_2_2" src="./img/mpg.png">
+            </div>
+
+        </div>
+
+        <div id="section4_3">
+            <div class="flex_cont">
+                <img id="section4_3_1" src="./img/not_an_mpg.png">  
+                <p id="section4_3_2">
+                  The second image to the right does not represent a monophyletic group because it excludes the common ancestor of all the species highlighted in orange. Although the species highlighted are all related to each other, you can't tell by looking at only the highlighted groups because their common ancestor is excluded.
+                </p>
+            </div>
+        </div>
+    </div>
+
 <!-- ############### A FANCY LINE TO SPLIT THE SECTIONS ###################### -->
 
+    <div id="section_5">
+        <div id="section5_bar"></div>
+        <div id="section5_1">
+            <h4>Relatedness</h4>
+            <p>
+                <strong>Relatedness</strong> refers to how closely two different species are connected by a common lineage. Two species are more closely related if they have a more recent common ancestor. To identify how closely related two species are, start at the branch tips that hold the two species of interest, then trace the branches of the tree backward until the two branches converge. This point of convergence represents the two species’ most recent common ancestor.
+            </p>
+        </div>
         <div id="visualization_3">
             <div id="chart">
                 <div class="species_description" id="sp_3_1">
@@ -159,6 +195,7 @@
             </div>
         </div>
     </div>
+
 
 
 

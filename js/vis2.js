@@ -224,7 +224,7 @@ $(function() {
         var q = $('<span class="question">?</span>');
         q.css('font-size', '15px');
         q.css('left', (x + 2) + 'px');
-        q.css('top', (y+7) + 'px');   
+        q.css('top', (y+ 7) + 'px');   
         $('#visualization_2').append(q);
     }
 
