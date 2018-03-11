@@ -68,9 +68,12 @@ $(document).ready(function() {
                     .transition()
                     .duration(50)
                     .style('left', (d3.event.pageX - 200) + 'px')
-                    .style('top', (d3.event.pageY - 250) + 'px')
+                    .style('top', (d3.event.pageY - 810) + 'px')
                     .style('background-image', 'url("./img/' + d.image + '")')
-                    .style('opacity', 1)                    
+                    .style('opacity', 1)     
+                console.log(d3.event.pageX);
+                console.log(d3.event.pageY);
+                console.log(d.y + " dfjka;elfjea");               
             })
             .on('mouseout', function(d) {
                 d3.select('#image_tooltip')

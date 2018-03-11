@@ -84,12 +84,24 @@ body {
 
 /*section 1*/
 
+#section_1 {
+    background-color: white;
+}
+
 #section_1, #section_2, #section_3, #section_4, #section_5{
     width: 850px;
     margin: 0 auto;
     margin-top: 2rem;
 
 }
+
+#section_1 h4 {
+    font-size: 22pt;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
 #section1_bar, #section2_bar, #section4_bar, #section5_bar {
     width: 850px;
     height: 25px;
@@ -104,16 +116,151 @@ body {
     text-align: center;
     height: 450px;
     margin-bottom: 2rem;
-}
-
-#visualization_1, #visualization_2 {
     position: relative;
 }
+
+/*#visualization_1, #visualization_2 {
+    position: relative;
+}*/
 
 #visualization_1, #visualization_2, #visualization_3 {
     background-color: white;
 }
 
+/* visualization 1*/
+.species_description {
+/*    visibility: hidden;
+    .opacity: 0;*/
+}
+
+.secpies_description h4 {
+    margin: 0;
+}
+
+.species_description h4, .species_description h6, .species_description img {
+    display: inline-block;
+}
+
+.species_description h6, img{
+    font-size: 1rem;
+    float: right;
+}
+
+#section_1 p {
+/*  width: 55%;
+*//*    margin-right: 1rem;
+*/}
+
+#sec1_img, #sec2_img {
+    width: 100%;
+}
+
+#sec2_img_1, #sec2_img_2 {
+    width: 100%;
+    height: 325px;
+    border: solid black 1px;
+
+}
+
+#section_2 p {
+    margin-right: 1rem;
+}
+
+#sp_1, #sp_2 {
+    text-align: left;
+    position: absolute;
+    width: 330px;
+    border: solid black 0.5px;
+    height: 170px;
+    padding: 0.6rem;
+
+    left: 505px;
+}
+
+#sp_1 {
+    top: -100px;
+    opacity: 0;
+}
+
+#sp_2 {
+    top: 490px;
+    opacity: 0;
+}
+
+#sp_1 p, #sp_2 p {
+    font-size: 10pt;
+}
+
+.node {
+    cursor: pointer;
+}
+
+#image_tooltip {
+    position: absolute;
+    padding: 0.3rem;
+    border-radius: 3px;
+
+    width: 75px;
+    height: 75px;
+    background-image: url('../img/cow.png');
+    background-size: contain;
+    opacity: 1;
+
+    left: 715px;
+    top: 69px;
+}
+
+
+.related_genes {
+    position: absolute;
+    top: 215px;
+    left: 550px;
+}
+
+#visualization_1 h4{
+    margin: 0;
+    font-size: 15pt;
+}
+
+
+
+
+#rg_right {
+    left: 730px;
+    top: 200px;
+    width: 70px;
+    height: 100px;
+
+    opacity: 0;
+}
+
+#rg_right h6, #rg_left h5 {
+    font-weight: bold;
+}
+
+#com_ances {
+    border: solid 0.5px black;
+    position: absolute;
+
+    width: 150px;
+    height: 75px;
+
+    opacity: 0;
+
+    top: 25px;
+    left: 25px;
+    padding: 1rem;
+}
+
+#com_ances h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+#com_ances h6 {
+    font-size: 20pt;
+    font-weight: bold;
+}
 
 /* Section 2 */
 
@@ -310,121 +457,3 @@ body {
 
 /* ##################################### */
 
-
-.species_description {
-/*    visibility: hidden;
-    .opacity: 0;*/
-}
-.species_description h4, .species_description h6, .species_description img {
-    display: inline-block;
-}
-
-.species_description h6, img{
-    font-size: 1rem;
-    float: right;
-}
-
-
-
-#section_1 p {
-/*	width: 55%;
-*//*	margin-right: 1rem;
-*/}
-
-#sec1_img, #sec2_img {
-	width: 100%;
-}
-
-#sec2_img_1, #sec2_img_2 {
-	width: 100%;
-	height: 325px;
-	border: solid black 1px;
-
-}
-
-#section_2 p {
-    margin-right: 1rem;
-}
-
-#sp_1, #sp_2 {
-    text-align: left;
-    position: absolute;
-    width: 330px;
-    border: solid black 0.5px;
-    height: 170px;
-    padding: 0.6rem;
-
-    left: 505px;
-}
-
-#sp_1 {
-    top: -100px;
-    opacity: 0;
-}
-
-#sp_2 {
-    top: 490px;
-    opacity: 0;
-}
-
-#sp_1 h4, #sp_2 h4 {
-    font-size: 1.25rem;
-}
-
-#sp_1 p, #sp_2 p {
-    font-size: 0.85rem;
-}
-
-.node {
-    cursor: pointer;
-}
-
-#image_tooltip {
-    position: absolute;
-    padding: 0.3rem;
-    border-radius: 3px;
-
-    width: 75px;
-    height: 75px;
-    background-image: url('../img/cow.png');
-    background-size: contain;
-    opacity: 0;
-}
-
-
-.related_genes {
-    position: absolute;
-    top: 215px;
-    left: 550px;
-}
-
-#rg_right {
-    left: 730px;
-    top: 200px;
-    width: 70px;
-    height: 100px;
-
-    opacity: 0;
-}
-
-#com_ances {
-    border: solid 0.5px black;
-    position: absolute;
-
-    width: 150px;
-    height: 75px;
-
-    opacity: 0;
-
-    top: 25px;
-    left: 25px;
-    padding: 1rem;
-}
-
-#com_ances h5 {
-    font-size: 1.1rem;
-}
-
-#com_ances h6 {
-    font-size: 0.9rem;
-}
