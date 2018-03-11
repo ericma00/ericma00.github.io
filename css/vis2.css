@@ -18,14 +18,12 @@
 	margin: 0;
 }
 
-#sister {
-	
+.root, .node, .terminal, .chara_2, .sister {
 	border-radius: 15px;
 
 	background-color: orange;
-	z-index: -1;
 	opacity: 0;
-
+	
 	position: absolute;
 	bottom: 70px;
 	left: 183.5PX;
@@ -34,31 +32,25 @@
 }
 
 
-#root, #node, #terminal, .chara_2 {
-	border-radius: 15px;
 
-	background-color: orange;
-	z-index: -1;
-	opacity: 0;
-
-	position: absolute;
-	width: 60px;
-	height: 60px;
-
-}
-#root {
-	top: 40px;
-	left: 217.5px;
+.root {
+	top: 45px;
+	left: 222.5px;
+	width: 50px;
+	height: 50px;
 
 }
 
-#node {
-	top: 130px;
-	left: 145px;
+.node {
+	top: 135px;
+	left: 150px;
+	width: 50px;
+	height: 50px;
 }
 
-#terminal {
+.terminal {
 	width: 40px;
+	height: 50px;
 	bottom: 73px;
 	left: 315.5px;
 }
@@ -83,5 +75,5 @@
 	position: absolute;
 	color: white;
 	top: 200px;
-	left: 10px;
+	left: 15px;
 }

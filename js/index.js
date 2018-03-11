@@ -67,13 +67,12 @@ $(document).ready(function() {
                 d3.select('#image_tooltip')
                     .transition()
                     .duration(50)
-                    .style('left', (d3.event.pageX - 200) + 'px')
-                    .style('top', (d3.event.pageY - 810) + 'px')
+                    .style('left', d.y + 243+ 'px')
+                    .style('top', d.x + 19 + 'px')
                     .style('background-image', 'url("./img/' + d.image + '")')
                     .style('opacity', 1)     
-                console.log(d3.event.pageX);
-                console.log(d3.event.pageY);
-                console.log(d.y + " dfjka;elfjea");               
+                console.log(d.x);
+                console.log(d.y);             
             })
             .on('mouseout', function(d) {
                 d3.select('#image_tooltip')
@@ -128,6 +127,27 @@ $(document).ready(function() {
                 .transition()
                 .duration(500)
                 .attr('transform', function(d) { return 'translate(' + (d.y + 62)  + ',' + (d.x + 100) + ')';})
+
+            d3.selectAll('circle')  
+                .on('mouseover', function(d) {
+                    d3.select('#image_tooltip')
+                        .transition()
+                        .duration(50)
+                        .style('left', d.y + 43+ 'px')
+                        .style('top', d.x + 19 + 'px')
+                        .style('background-image', 'url("./img/' + d.image + '")')
+                        .style('opacity', 1)     
+                    console.log(d.x);
+                    console.log(d.y);             
+                })
+                .on('mouseout', function(d) {
+                    d3.select('#image_tooltip')
+                        .transition()
+                        .duration(100)
+                        .style('opacity', 0)
+                })
+
+
 
             $('#sp_1').animate({
                top: '160px',
