@@ -85,6 +85,9 @@ $(document).ready(function() {
                 console.log(d3.event.pageX);
                 console.log(d3.event.pageY);
                 console.log(d.y + " dfjka;elfjea");               
+<<<<<<< HEAD
+>>>>>>> parent of 1e2ef17... fixed vis2
+=======
 >>>>>>> parent of 1e2ef17... fixed vis2
             })
             .on('mouseout', function(d) {
