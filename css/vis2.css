@@ -14,6 +14,7 @@
 	background-color: #FDBC5E;
 }
 
+
 #vis2_description h4 {
 	text-align: center;
 	padding: 1rem 0 0.5rem 0;
@@ -29,6 +30,11 @@
 	background-color: #efeff0;
 }
 
+
+.click_circle {
+	position: absolute;
+	cursor: pointer
+}
 
 
 #root, #node, #terminal, #character_1, #character_2, #sister {

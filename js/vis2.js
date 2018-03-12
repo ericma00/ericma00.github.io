@@ -66,87 +66,55 @@ $(function() {
             .attr('class', 'vis2_link')
             .attr('fill', 'none')
             .attr('stroke', 'black')
-            .attr('d', diagonal);
-
-
-        svg.append('circle')
-            .attr('class', 'vis2_explanation')
-            .attr('r', '15px')
-            .attr('fill', selectColor)
-            .style('opacity', selectOpacity)
-            .attr('cx', '125px')
-            .attr('cy', '130px')
-            .on('click', function() {
-
-                display_description(1, 'node');
-
-            })
-
-
-
-        svg.append('circle')
-            .attr('class', 'vis2_explanation')
-            .attr('r', '15px')
-            .attr('fill', selectColor)
-            .style('opacity', selectOpacity)
-            .attr('cx', '370px')
-            .attr('cy', '385px')
-            .on('click', function() {
-                display_description(3, 'terminal');
-                
-            })
-
-        svg.append('circle')
-            .attr('class', 'vis2_explanation')
-            .attr('r', '15px')
-            .attr('fill', selectColor)
-            .style('opacity', selectOpacity)
-            .attr('cx', '220px')
-            .attr('cy', '405px')
-            .on('click', function() {
-
-                display_description(2, 'sister');
-            })
-
-        svg.append('circle')
-            .attr('class', 'vis2_explanation')
-            .attr('r', '15px')
-            .attr('fill', selectColor)
-            .style('opacity', selectOpacity)
-            .attr('cx', '195px')
-            .attr('cy', '45px')
-            .on('click', function() {
-                display_description(0, 'root');
-
-            })
-
-        svg.append('circle')
-            .attr('class', 'vis2_explanation')
-            .attr('r', '15px')
-            .attr('fill', selectColor)
-            .style('opacity', selectOpacity)
-            .attr('cx', '280')
-            .attr('cy', '225px')
-            .on('click', function() {
-                display_description(4, 'character');
-            })    
+            .attr('d', diagonal);  
 
         createCharacters('chara', 310, 180);
         createCharacters('chara', 297, 290);
 
-        createQ(188, 26);
-        createQ(118, 111);
-        createQ(273.5, 206);
-        createQ(213.5, 386);
-        createQ(363.5, 366);
+
+        createCircles(180, 30, 1);
+        createCircles(110, 115, 2);
+        createCircles(205, 390, 3);
+        createCircles(355, 370, 4);
+        createCircles(265, 210, 5);
+
+        $('.click_circle').on('click', function() {
+            console.log($(this).attr('id'));
+
+            if ($(this).attr('id') == 1) {
+                display_description(0, 'root');
+
+            }
+
+            if ($(this).attr('id') == 2) {
+                display_description(1, 'node');        
+            }
+
+            if ($(this).attr('id') == 3) {
+                display_description(2, 'sister');
+        
+            }
+
+            if ($(this).attr('id') == 4) {
+                display_description(3, 'terminal');
+                
+            }
+
+            if ($(this).attr('id') == 5) {
+                display_description(4, 'character');      
+            }
+        })
 
 
+
+
+ 
         createTimeline(65, 80, 65, 365);
         
       //   <line x1="20" y1="100" x2="100" y2="20"
       // stroke-width="2" stroke="black"/>
 
- 	 })
+ 	})
     
     function clear_everything() {
         $('#visualization_2 h4').empty();
@@ -158,7 +126,6 @@ $(function() {
         $('#terminal').css('opacity', 0);
         $('#node').css('opacity', 0);  
     }
-
 
     function display_description(num, name) {
         console.log("name: " + name);
@@ -259,7 +226,6 @@ $(function() {
             .attr('x2', 65)
             .attr('y2', 365);
 
-
         svg.append('text')
             .text('ANCESTORS')
             .attr('x', 22)
@@ -274,7 +240,6 @@ $(function() {
             .style('font-size', '11pt')
             .style('fill', '#808080')
             
-
         svg.append('text')
             .text('SPECIES')
             .attr('x', 37)
@@ -288,34 +253,22 @@ $(function() {
         t.css('left', x + 'px');
         t.css('top', y + 'px');
         $('#visualization_2').append(t);
-
-
-
     }
 
+    function createCircles(x, y, id) {
+        var t = $('<div id="' + id + '" class="click_circle"></div>');
+        var q = $('<span></span>');
+        q.css('color', 'white');
+        q.text("?");
+        t.append(q);
 
-
-    function createQ(x, y) {
-        var q = $('<span class="question">?</span>');
-        q.css('font-size', '12px');
-        q.css('left', (x + 4) + 'px');
-        q.css('top', (y+ 10) + 'px');   
-        $('#visualization_2').append(q);
+        t.css('padding-top', '2px');
+        t.css('background-color', selectColor)
+        t.css('width', '30px')
+        t.css('height', '30px')
+        t.css('border-radius', '50%');
+        t.css('left', x + 'px');
+        t.css('top', y + 'px');
+        $('#visualization_2').append(t);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
