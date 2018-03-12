@@ -71,13 +71,10 @@ $(document).ready(function() {
                 d3.select('#image_tooltip')
                     .transition()
                     .duration(50)
-                    .style('left', (d3.event.pageX - 200) + 'px')
-                    .style('top', (d3.event.pageY - 810) + 'px')
+                    .style('left', (d.y + 245) + 'px')
+                    .style('top',  (d.x + 15) + 'px')
                     .style('background-image', 'url("./img/' + d.image + '")')
-                    .style('opacity', 1)     
-                console.log(d3.event.pageX);
-                console.log(d3.event.pageY);
-                console.log(d.y + " dfjka;elfjea");               
+                    .style('opacity', 1)               
             })
             .on('mouseout', function(d) {
                 d3.select('#image_tooltip')
@@ -267,6 +264,24 @@ $(document).ready(function() {
                 .duration(500)
                 .attr('transform', function(d) { return 'translate(' + (d.y + 62)  + ',' + (d.x + 100) + ')';})
 
+            d3.selectAll('.node')
+                .on('mouseover', function(d) {
+
+                    d3.select('#image_tooltip')
+                        .transition()
+                        .duration(50)
+                        .style('left', (d.y + 70) + 'px')
+                        .style('top',  (d.x + 15) + 'px')
+                        .style('background-image', 'url("./img/' + d.image + '")')
+                        .style('opacity', 1)               
+                })
+                .on('mouseout', function(d) {
+                    d3.select('#image_tooltip')
+                        .transition()
+                        .duration(100)
+                        .style('opacity', 0)
+                })
+
             // shift timeline to the left
             shiftTimelineLeft()
 
@@ -309,6 +324,26 @@ $(document).ready(function() {
                     .transition()
                     .duration(500)
                     .attr('transform', function(d) { return 'translate(' + (d.y + 237)  + ',' + (d.x + 100) + ')';})
+
+
+                // node hover 
+                d3.selectAll('.node')
+                .on('mouseover', function(d) {
+
+                    d3.select('#image_tooltip')
+                        .transition()
+                        .duration(50)
+                        .style('left', (d.y + 245) + 'px')
+                        .style('top',  (d.x + 15) + 'px')
+                        .style('background-image', 'url("./img/' + d.image + '")')
+                        .style('opacity', 1)               
+                })
+                .on('mouseout', function(d) {
+                    d3.select('#image_tooltip')
+                        .transition()
+                        .duration(100)
+                        .style('opacity', 0)
+                })
 
                 // shift timeline back to the center
                 shiftTimelineRight();
@@ -534,7 +569,7 @@ $(document).ready(function() {
         var source_node;
         if (depth == 0) {
             d3.selectAll('.link')
-                .style("stroke", 'black')
+                .style("stroke", '#bdbdbd')
                 .style('stroke-width', '1px')
                 .style('opacity', 1);
 
@@ -543,7 +578,7 @@ $(document).ready(function() {
                 .filter(function(d) {
                     return d.target === node;
                 })
-                .style("stroke", 'black')
+                .style("stroke", '#bdbdbd')
                 .style('stroke-width', '1px')
                 .style('opacity', 1);
 
@@ -555,7 +590,7 @@ $(document).ready(function() {
                         return d;
                     }
                 })
-                .style("stroke", 'black')
+                .style("stroke", '#bdbdbd')
                 .style('stroke-width', '1px')
                 .style('opacity', 1);
 
