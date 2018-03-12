@@ -141,7 +141,7 @@ $(function() {
         createQ(363.5, 366);
 
 
-        createTimeline(65, 80, 65, 350);
+        createTimeline(65, 80, 65, 365);
         
       //   <line x1="20" y1="100" x2="100" y2="20"
       // stroke-width="2" stroke="black"/>
@@ -223,7 +223,10 @@ $(function() {
                 if (name == "character") {
                     $('.character').css('opacity', 0.3);
                 } else {
-                   $('#' + name).css('opacity', 0.3); 
+                   d3.select('#' + name)
+                        .transition()
+                        .duration(500)
+                        .style('opacity', 0.3);
                }
                 descript = name;
             }
@@ -244,17 +247,17 @@ $(function() {
             .style('stroke', '#808080')
             .style('stroke-width', 2)
             .attr('x1', 58)
-            .attr('y1', 340)
+            .attr('y1', 355)
             .attr('x2', 65)
-            .attr('y2', 350);
+            .attr('y2', 365);
 
         svg.append('line')
             .style('stroke', '#808080')
             .style('stroke-width', 2)
             .attr('x1', 72)
-            .attr('y1', 340)
+            .attr('y1', 355)
             .attr('x2', 65)
-            .attr('y2', 350);
+            .attr('y2', 365);
 
 
         svg.append('text')
@@ -263,25 +266,21 @@ $(function() {
             .attr('y', 67)
             .style('fill', '#808080')
             .style('font-size', '11pt')
-            .style('font-weight', 'bold');
 
         svg.append('text')
             .text('PRESENT-DAY')
             .attr('x', 17)
-            .attr('y', 375)
+            .attr('y', 390)
             .style('font-size', '11pt')
             .style('fill', '#808080')
-            .style('font-weight', 'bold');
+            
 
         svg.append('text')
             .text('SPECIES')
             .attr('x', 37)
-            .attr('y', 390)
+            .attr('y', 405)
             .style('fill', '#808080')
             .style('font-size', '11pt')
-            .style('font-weight', 'bold');
-
-
     }
 
     function createCharacters(name, x, y) {

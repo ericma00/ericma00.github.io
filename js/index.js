@@ -45,6 +45,10 @@ $(document).ready(function() {
     var c1;
     var c2;
 
+    createTimeline(270, 400, 520, 400);
+
+
+    // create timeline
     d3.json('/data/data.json', function(error, data) {
 
         var nodes = tree.nodes(data);     
@@ -103,6 +107,139 @@ $(document).ready(function() {
             .attr('d', diagonal);
     })
 
+    function createTimeline(x1, y1, x2, y2) {
+        svg.append('line')
+            .attr('class', 'timeline_line')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', x1)
+            .attr('y1', y1)
+            .attr('x2', x2)
+            .attr('y2', y2);
+
+        svg.append('line')
+            .attr('class', 'timeline_arrow1')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', 510)
+            .attr('y1', 405)
+            .attr('x2', 520)
+            .attr('y2', 400);
+
+        svg.append('line')
+            .attr('class', 'timeline_arrow2')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', 510)
+            .attr('y1', 395)
+            .attr('x2', 520)
+            .attr('y2', 400);
+
+
+        svg.append('text')
+            .attr('class', 'left_text')
+            .text('Ancestors')
+            .attr('x', 210)
+            .attr('y', 403)
+            .style('fill', '#808080')
+            .style('font-size', '9pt')
+            .style('font-style', 'italic')
+            // .style('font-weight', 'bold');
+
+        svg.append('text')
+            .attr('class', 'right_text1')
+            .text('Present-Day')
+            .attr('x', 530)
+            .attr('y', 393)
+            .style('font-size', '9pt')
+            .style('fill', '#808080')
+            .style('font-style', 'italic')
+
+            // .style('font-weight', 'bold');
+
+        svg.append('text')
+            .attr('class', 'right_text2')
+            .text('Species')
+            .attr('x', 545)
+            .attr('y', 410)
+            .style('fill', '#808080')
+            .style('font-size', '9pt')
+            .style('font-style', 'italic')
+
+            // .style('font-weight', 'bold');
+    }
+
+    function shiftTimelineRight() {
+        d3.select('.timeline_line')
+            .transition()
+            .duration(500)
+            .attr('x1', 270)
+            .attr('x2', 520)
+
+        d3.select('.timeline_arrow1')
+            .transition()
+            .duration(500)
+            .attr('x1', 510)
+            .attr('x2', 520)
+
+        d3.select('.timeline_arrow2')
+            .transition()
+            .duration(500)
+            .attr('x1', 510)
+            .attr('x2', 520)
+
+        d3.select('.left_text')
+            .transition()
+            .duration(500)
+            .attr('x', 210)
+
+        d3.select('.right_text1')
+            .transition()
+            .duration(500)
+            .attr('x', 530)
+
+        d3.select('.right_text2')
+            .transition()
+            .duration(500)
+            .attr('x', 540)
+    }
+
+    function shiftTimelineLeft() {
+        d3.select('.timeline_line')
+            .transition()
+            .duration(500)
+            .attr('x1', 90)
+            .attr('x2', 340)
+
+        d3.select('.timeline_arrow1')
+            .transition()
+            .duration(500)
+            .attr('x1', 330)
+            .attr('x2', 340)
+
+        d3.select('.timeline_arrow2')
+            .transition()
+            .duration(500)
+            .attr('x1', 330)
+            .attr('x2', 340)
+
+        d3.select('.left_text')
+            .transition()
+            .duration(500)
+            .attr('x', 30)
+
+        d3.select('.right_text1')
+            .transition()
+            .duration(500)
+            .attr('x', 350)
+
+        d3.select('.right_text2')
+            .transition()
+            .duration(500)
+            .attr('x', 360)
+    }
+
+
     function show_descrip(data) {
 
         highlight_link(data, data.depth, data.color);
@@ -118,6 +255,7 @@ $(document).ready(function() {
             // shift tree to the left
             var diagonal_new = d3.svg.diagonal()  
                 .projection(function(d) { return [d.y + 55, d.x + 100]; });
+
             svg.selectAll('path.link')
                 .transition()
                 .duration(500)
@@ -128,6 +266,9 @@ $(document).ready(function() {
                 .transition()
                 .duration(500)
                 .attr('transform', function(d) { return 'translate(' + (d.y + 62)  + ',' + (d.x + 100) + ')';})
+
+            // shift timeline to the left
+            shiftTimelineLeft()
 
             $('#sp_1').animate({
                top: '160px',
@@ -168,6 +309,9 @@ $(document).ready(function() {
                     .transition()
                     .duration(500)
                     .attr('transform', function(d) { return 'translate(' + (d.y + 237)  + ',' + (d.x + 100) + ')';})
+
+                // shift timeline back to the center
+                shiftTimelineRight();
 
                 if (filled_display == '#sp_1') {
                     $('#sp_1').animate({
@@ -211,19 +355,19 @@ $(document).ready(function() {
                 // append circles
                 svg.append('circle')
                     .attr('id', 'species_1')
-                    .attr('cx', '653px')
-                    .attr('cy', '225px')
+                    .attr('cx', '623px')
+                    .attr('cy', '215px')
                     .attr('r', 0)
                     .transition()
                     .duration(1000)
                     .attr('fill', c1.color)
                     .style('opacity', 0.5)
                     .attr('r', c1.gene_rad);
-                
+                                    
                 svg.append('circle')
                     .attr('id', 'species_2')
-                    .attr('cx', '678px')
-                    .attr('cy', '225px')
+                    .attr('cx', '648px')
+                    .attr('cy', '215px')
                     .attr('r', 0)
                     .transition()
                     .duration(1000)

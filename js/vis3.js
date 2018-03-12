@@ -31,6 +31,9 @@ d3.json("./data/math_map_compact.json", function(json) {
   update(root = json);
 });
 
+    createTimeline(70, 360, 320, 360);
+
+
 function update(source) {
   // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse();
@@ -102,6 +105,68 @@ function update(source) {
             .remove();
 }
 
+
+    function createTimeline(x1, y1, x2, y2) {
+        vis.append('line')
+            .attr('class', 'timeline_line')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', x1)
+            .attr('y1', y1)
+            .attr('x2', x2)
+            .attr('y2', y2);
+
+        vis.append('line')
+            .attr('class', 'timeline_arrow1')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', 310)
+            .attr('y1', 355)
+            .attr('x2', 320)
+            .attr('y2', 360);
+
+        vis.append('line')
+            .attr('class', 'timeline_arrow2')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', 310)
+            .attr('y1', 365)
+            .attr('x2', 320)
+            .attr('y2', 360);
+
+
+        vis.append('text')
+            .attr('class', 'left_text')
+            .text('Ancestors')
+            .attr('x', 10)
+            .attr('y', 363)
+            .style('fill', '#808080')
+            .style('font-size', '9pt')
+            .style('font-style', 'italic')
+            // .style('font-weight', 'bold');
+
+        vis.append('text')
+            .attr('class', 'right_text1')
+            .text('Present-Day')
+            .attr('x', 330)
+            .attr('y', 353)
+            .style('font-size', '9pt')
+            .style('fill', '#808080')
+            .style('font-style', 'italic')
+
+            // .style('font-weight', 'bold');
+
+        vis.append('text')
+            .attr('class', 'right_text2')
+            .text('Species')
+            .attr('x', 345)
+            .attr('y', 370)
+            .style('fill', '#808080')
+            .style('font-size', '9pt')
+            .style('font-style', 'italic')
+
+            // .style('font-weight', 'bold');
+    }
 
 
 
