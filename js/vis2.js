@@ -29,6 +29,9 @@ $(function() {
     var tree = d3.layout.tree()
         .size([270, 270]);
 
+
+
+
     d3.json('../data/vis2_data.json', function(json) {
 
     	var nodes = tree.nodes(json);
@@ -126,48 +129,22 @@ $(function() {
             .attr('cy', '225px')
             .on('click', function() {
                 display_description(4, 'character');
-                // if (state == 0) {
-                //     state = 1;
-                //     $('#visualization_2 h4').text(descrip_data[4].term);
-                //     $('#visualization_2 p').text(descrip_data[4].description);
-                //     $('.chara_2').css('opacity', 0.5);
-                //     descript = name;
-                // } else {
-                //     if (descript == name) {
-                //         state = 0;
-                //         $('#visualization_2 h4').empty();
-                //         $('#visualization_2 p').empty()
-                //         $('.chara_2').css('opacity', 0);  
-                //         descript = "";
-                //     } else {
-                //         clear_everything();
-                //         $('#visualization_2 h4').text(descrip_data[num].term);
-                //         $('#visualization_2 p').text(descrip_data[num].description);
-                //         $('.chara_2').css('opacity', 0.5); 
-                //         descript = name;
-                //     }      
-                // }
             })    
 
-        // var c = $('div').attr('class', 'bob'); 
-        // console.log(c);
-
         createCharacters('chara', 310, 180);
-
         createCharacters('chara', 297, 290);
-
-
-
-        // createCharacters('chara_2', 291, 277);
-        // createCharacters('chara_2', 305, 166);
-        // test.css({'position': 'aboslute', 'width': '10px', 'border': 'solid 1px black', 'height': '50px'})
-        // svg.append(test);
 
         createQ(188, 26);
         createQ(118, 111);
         createQ(273.5, 206);
         createQ(213.5, 386);
         createQ(363.5, 366);
+
+
+        createTimeline(65, 80, 65, 350);
+        
+      //   <line x1="20" y1="100" x2="100" y2="20"
+      // stroke-width="2" stroke="black"/>
 
  	 })
     
@@ -187,31 +164,60 @@ $(function() {
         console.log("name: " + name);
         if (state == 0) {
             state = 1;
+
+            d3.select('#vis2_description')
+                .transition()
+                .duration(500)
+                .style('opacity', 1);
+
             $('#visualization_2 h4').text(descrip_data[num].term);
             $('#visualization_2 p').text(descrip_data[num].description);
+
 
             if (name == "character") {
                 $('.character').css('opacity', 0.3);
             } else {
-                $('#' + name).css('opacity', 0.3);
+                d3.select('#' + name)
+                    .transition()
+                    .duration(500)
+                    .style('opacity', 0.35);
             }
 
             descript = name;
         } else {
             if (descript == name) {
                 state = 0;
-                $('#visualization_2 h4').empty();
-                $('#visualization_2 p').empty()
+
+                d3.select('#vis2_description')
+                    .transition()
+                    .duration(500)
+                    .style('opacity', 0);
+
+                setTimeout(function() {
+                    $('#visualization_2 h4').empty();
+                    $('#visualization_2 p').empty();                    
+                }, 500);
+
+
                 if (name == "character") {
+
                     $('.character').css('opacity', 0);
-                    console.log('hifjeak;fjeakfe');
                 } else {
-                    $('#' + name).css('opacity', 0);
-                    console.log('fjea;kfjeakfaef');
+                    d3.select('#' + name)
+                        .transition()
+                        .duration(500)
+                        .style('opacity', 0);
                 }
                 descript = "";
             } else {
                 clear_everything();
+
+                d3.select('#vis2_description')
+                    .style('opacity', 0)
+                    .transition()
+                    .duration(700)
+                    .style('opacity', 1);
+
                 $('#visualization_2 h4').text(descrip_data[num].term);
                 $('#visualization_2 p').text(descrip_data[num].description);
                 if (name == "character") {
@@ -222,6 +228,59 @@ $(function() {
                 descript = name;
             }
         }
+
+    }
+
+    function createTimeline(x1, y1, x2, y2) {
+        svg.append('line')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', x1)
+            .attr('y1', y1)
+            .attr('x2', x2)
+            .attr('y2', y2);
+
+        svg.append('line')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', 58)
+            .attr('y1', 340)
+            .attr('x2', 65)
+            .attr('y2', 350);
+
+        svg.append('line')
+            .style('stroke', '#808080')
+            .style('stroke-width', 2)
+            .attr('x1', 72)
+            .attr('y1', 340)
+            .attr('x2', 65)
+            .attr('y2', 350);
+
+
+        svg.append('text')
+            .text('ANCESTORS')
+            .attr('x', 22)
+            .attr('y', 67)
+            .style('fill', '#808080')
+            .style('font-size', '11pt')
+            .style('font-weight', 'bold');
+
+        svg.append('text')
+            .text('PRESENT-DAY')
+            .attr('x', 17)
+            .attr('y', 375)
+            .style('font-size', '11pt')
+            .style('fill', '#808080')
+            .style('font-weight', 'bold');
+
+        svg.append('text')
+            .text('SPECIES')
+            .attr('x', 37)
+            .attr('y', 390)
+            .style('fill', '#808080')
+            .style('font-size', '11pt')
+            .style('font-weight', 'bold');
+
 
     }
 

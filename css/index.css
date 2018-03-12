@@ -497,11 +497,12 @@ path .link {
 }
 
 #section6_3_1 {
-    margin-left: 3rem;
+    margin-left: 5rem;
     margin-right: 1rem;
     text-align: left;
-    padding: 1rem;
     padding-top: 2rem;
+    border-left: solid 7px #ad7c59;
+    margin-bottom: 1rem;
 }
 
 #section6_3_2 {
