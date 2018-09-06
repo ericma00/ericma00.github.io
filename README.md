@@ -15,7 +15,7 @@ After listing down all the things he gave us as well as some google searches on 
 ### Design:
 This took a while since there were many different ways to present the data. After various iterations, we came up with 3 different data visualizations: an interactive tree that highlights the tree branches when user click on the leaf of the tree, an interactive tree that maps out different terminologies of the tree on the visualization, and finally a quiz.
 
-[This[(https://drive.google.com/file/d/1ucLlXpbf1e_pjCOP8_iTceXWqAwm_f2r/view?usp=sharing) was the planning notes and wireframes for our project 
+[This](https://drive.google.com/file/d/1ucLlXpbf1e_pjCOP8_iTceXWqAwm_f2r/view?usp=sharing) was the planning notes and wireframes for our project 
 
 ### Implementation: 
 This project mainly uses d3.js for the interactive visualizations. Other than that, everything else was HTML, CSS (a lot of it), and JavaScript. 
